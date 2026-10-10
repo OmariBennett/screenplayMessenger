@@ -1,0 +1,255 @@
+{
+  "title": "Screenplay Messenger",
+  "byline": "User Full Name",
+  "contact": {
+    "name": "User Full Name",
+    "email": "userEmailAddress@exampleEmail.com"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. WRITER'S ROOM – NIGHT" },
+        { "type": "action", "text": "A laptop glows in the dark. RAIN taps the window. User_Name leans in, mid-30s, wired on too much coffee and not enough sleep.", "caps": ["RAIN"] },
+        { "type": "character", "name": "User_Name" },
+        { "type": "dialogue", "text": "Okay. Courier, twelve point. Let's see if this actually looks right." },
+        { "type": "character", "name": "User_Name", "extension": "V.O." },
+        { "type": "parenthetical", "text": "(typing)" },
+        { "type": "dialogue", "text": "Scene heading, action, character, dialogue, parenthetical — all where they're supposed to be." },
+        { "type": "transition", "text": "CUT TO:" }
+      ]
+    },
+    {
+      "page": 2,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. KITCHEN – MORNING" },
+        { "type": "action", "text": "PLACEHOLDER_NAME crosses the room, scanning for something that isn't there." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "parenthetical", "text": "(beat)" },
+        { "type": "dialogue", "text": "You didn't have to come." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "I know. I came anyway." },
+        { "type": "transition", "text": "CUT TO:" }
+      ]
+    },
+    {
+      "page": 3,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. CITY STREET – DAY" },
+        { "type": "action", "text": "A phone buzzes on the table. No one moves to answer it." },
+        { "type": "character", "name": "PLACEHOLDER_NAME", "extension": "O.S." },
+        { "type": "dialogue", "text": "We need to talk about the pages." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then let's talk." },
+        { "type": "transition", "text": "SMASH CUT TO:" }
+      ]
+    },
+    {
+      "page": 4,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. OFFICE – DAY" },
+        { "type": "action", "text": "Footsteps echo. The silence afterward is worse." },
+        { "type": "subheading", "text": "MOMENTS LATER" },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "This isn't what we agreed on." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "It's exactly what we agreed on." },
+        { "type": "transition", "text": "DISSOLVE TO:" }
+      ]
+    },
+    {
+      "page": 5,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. CAR – CONTINUOUS" },
+        { "type": "action", "text": "PLACEHOLDER_NAME stares at the screen, then closes the laptop." },
+        {
+          "type": "dualDialogue",
+          "left": { "name": "PLACEHOLDER_NAME", "text": "Say that again, slower this time." },
+          "right": { "name": "OTHER_NAME", "text": "You heard me the first time." }
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. DINER – NIGHT" },
+        { "type": "action", "text": "Rain streaks the window. Somewhere, a door closes." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "I've been rehearsing this all day." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then it should sound rehearsed." }
+      ]
+    },
+    {
+      "page": 7,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. ROOFTOP – NIGHT" },
+        { "type": "action", "text": "The room is too quiet. PLACEHOLDER_NAME notices." },
+        { "type": "character", "name": "PLACEHOLDER_NAME", "extension": "O.S." },
+        { "type": "dialogue", "text": "Something doesn't add up here." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Nothing ever does, with you." },
+        { "type": "transition", "text": "CUT TO:" }
+      ]
+    },
+    {
+      "page": 8,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. HALLWAY – DAY" },
+        { "type": "action", "text": "A clock ticks. PLACEHOLDER_NAME checks it twice." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "parenthetical", "text": "(quietly)" },
+        { "type": "dialogue", "text": "You didn't have to come." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "I know. I came anyway." },
+        { "type": "transition", "text": "SMASH CUT TO:" }
+      ]
+    },
+    {
+      "page": 9,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. BEDROOM – NIGHT" },
+        { "type": "action", "text": "PLACEHOLDER_NAME exhales, finally sitting down." },
+        { "type": "subheading", "text": "MOMENTS LATER" },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "We need to talk about the pages." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then let's talk." },
+        { "type": "transition", "text": "DISSOLVE TO:" }
+      ]
+    },
+    {
+      "page": 10,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. PARK – DAY" },
+        { "type": "action", "text": "PLACEHOLDER_NAME crosses the room, scanning for something that isn't there." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "This isn't what we agreed on." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "It's exactly what we agreed on." }
+      ]
+    },
+    {
+      "page": 11,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. WRITER'S ROOM – LATER" },
+        { "type": "action", "text": "A phone buzzes on the table. No one moves to answer it." },
+        {
+          "type": "dualDialogue",
+          "left": { "name": "PLACEHOLDER_NAME", "text": "Say that again, slower this time." },
+          "right": { "name": "OTHER_NAME", "text": "You heard me the first time." }
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. ELEVATOR – CONTINUOUS" },
+        { "type": "action", "text": "Footsteps echo. The silence afterward is worse." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "I've been rehearsing this all day." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then it should sound rehearsed." },
+        { "type": "transition", "text": "CUT TO:" }
+      ]
+    },
+    {
+      "page": 13,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. PARKING LOT – NIGHT" },
+        { "type": "action", "text": "PLACEHOLDER_NAME stares at the screen, then closes the laptop." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "Something doesn't add up here." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Nothing ever does, with you." },
+        { "type": "transition", "text": "SMASH CUT TO:" }
+      ]
+    },
+    {
+      "page": 14,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. STAIRWELL – DAY" },
+        { "type": "action", "text": "Rain streaks the window. Somewhere, a door closes." },
+        { "type": "subheading", "text": "MOMENTS LATER" },
+        { "type": "character", "name": "PLACEHOLDER_NAME", "extension": "CONT'D" },
+        { "type": "parenthetical", "text": "(sarcastically)" },
+        { "type": "dialogue", "text": "You didn't have to come." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "I know. I came anyway." },
+        { "type": "transition", "text": "DISSOLVE TO:" }
+      ]
+    },
+    {
+      "page": 15,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. CONFERENCE ROOM – DAY" },
+        { "type": "action", "text": "The room is too quiet. PLACEHOLDER_NAME notices." },
+        { "type": "character", "name": "PLACEHOLDER_NAME", "extension": "O.S." },
+        { "type": "dialogue", "text": "We need to talk about the pages." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then let's talk." }
+      ]
+    },
+    {
+      "page": 16,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. ALLEY – NIGHT" },
+        { "type": "action", "text": "A clock ticks. PLACEHOLDER_NAME checks it twice." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "This isn't what we agreed on." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "It's exactly what we agreed on." }
+      ]
+    },
+    {
+      "page": 17,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. LOBBY – MORNING" },
+        { "type": "action", "text": "PLACEHOLDER_NAME exhales, finally sitting down." },
+        {
+          "type": "dualDialogue",
+          "left": { "name": "PLACEHOLDER_NAME", "text": "Say that again, slower this time." },
+          "right": { "name": "OTHER_NAME", "text": "You heard me the first time." }
+        },
+        { "type": "transition", "text": "CUT TO:" }
+      ]
+    },
+    {
+      "page": 18,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. STUDIO – DAY" },
+        { "type": "action", "text": "PLACEHOLDER_NAME crosses the room, scanning for something that isn't there." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "dialogue", "text": "I've been rehearsing this all day." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Then it should sound rehearsed." },
+        { "type": "transition", "text": "SMASH CUT TO:" }
+      ]
+    },
+    {
+      "page": 19,
+      "elements": [
+        { "type": "sceneHeading", "text": "EXT. ROOFTOP – DAWN" },
+        { "type": "action", "text": "A phone buzzes on the table. No one moves to answer it." },
+        { "type": "subheading", "text": "MOMENTS LATER" },
+        { "type": "character", "name": "PLACEHOLDER_NAME", "extension": "O.S." },
+        { "type": "dialogue", "text": "Something doesn't add up here." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "Nothing ever does, with you." },
+        { "type": "transition", "text": "DISSOLVE TO:" }
+      ]
+    },
+    {
+      "page": 20,
+      "elements": [
+        { "type": "sceneHeading", "text": "INT. WRITER'S ROOM – NIGHT" },
+        { "type": "action", "text": "Footsteps echo. The silence afterward is worse." },
+        { "type": "character", "name": "PLACEHOLDER_NAME" },
+        { "type": "parenthetical", "text": "(without looking up)" },
+        { "type": "dialogue", "text": "You didn't have to come." },
+        { "type": "character", "name": "OTHER_NAME" },
+        { "type": "dialogue", "text": "I know. I came anyway." }
+      ]
+    }
+  ]
+}

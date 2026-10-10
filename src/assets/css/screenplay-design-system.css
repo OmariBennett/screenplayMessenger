@@ -1,0 +1,302 @@
+/*
+  Screenplay Design System
+  ------------------------
+  Encodes standard US screenplay formatting (Courier 12pt, 8.5x11 page,
+  1.5in left / 1in top-right-bottom margins, fixed element indents) as
+  CSS custom properties + component classes.
+
+  Source: https://www.studiobinder.com/blog/how-to-write-a-screenplay/
+  plus standard industry measurements for element positions not covered
+  by that source (character cue / dialogue / parenthetical indents).
+*/
+
+@layer screenplay-tokens, screenplay-page, screenplay-elements, screenplay-chrome;
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@layer screenplay-tokens {
+  :root {
+    /* Type */
+    --script-font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+    --script-font-size: 12pt;
+    --script-line-height: 1;
+
+    /* Page geometry (US Letter, industry-standard margins) */
+    --script-page-width: 8.5in;
+    --script-page-height: 11in;
+    --script-margin-top: 1in;
+    --script-margin-right: 1in;
+    --script-margin-bottom: 1in;
+    --script-margin-left: 1.5in;
+
+    /* Element indents, measured from the LEFT PAGE EDGE per Hollywood
+       standard, then expressed relative to the 1.5in left margin so they
+       compose as simple offsets inside the page's content box. */
+    --script-indent-scene-heading: 0in;                 /* 1.5in from edge */
+    --script-indent-action: 0in;                         /* 1.5in from edge */
+    --script-indent-character: 2.2in;                    /* 3.7in from edge */
+    --script-indent-parenthetical: 1.6in;                /* 3.1in from edge */
+    --script-indent-dialogue: 1in;                        /* 2.5in from edge */
+
+    /* Element widths */
+    --script-width-character: 3.3in;
+    --script-width-parenthetical: 2in;
+    --script-width-dialogue: 3.5in;
+    --script-width-action: 6in;
+
+    /* Vertical rhythm — single-spaced Courier 12pt runs ~6 lines/inch,
+       so one blank line ≈ 1 line-height of the body font. */
+    --script-space-blank-line: 1lh;
+    --script-space-before-scene-heading: 2lh;
+    --script-space-before-character: 1lh;
+    --script-space-before-transition: 1lh;
+
+    /* Palette — page is always print-white/black regardless of app theme;
+       these are just the surrounding chrome tokens. */
+    --script-page-bg: #fff;
+    --script-page-fg: #000;
+    --script-page-shadow: 0 1px 3px oklch(0% 0 0 / 25%), 0 8px 24px oklch(0% 0 0 / 20%);
+    --script-canvas-bg: #e8e8ea;
+    --script-canvas-fg: #1a1a1c;
+
+    --script-page-scale: 1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --script-canvas-bg: #17181a;
+      --script-canvas-fg: #e6e6e8;
+      --script-page-shadow: 0 1px 3px oklch(0% 0 0 / 50%), 0 8px 28px oklch(0% 0 0 / 45%);
+    }
+  }
+
+  :root[data-theme='dark'] {
+    --script-canvas-bg: #17181a;
+    --script-canvas-fg: #e6e6e8;
+    --script-page-shadow: 0 1px 3px oklch(0% 0 0 / 50%), 0 8px 28px oklch(0% 0 0 / 45%);
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Canvas + page                                                          */
+/* ---------------------------------------------------------------------- */
+
+@layer screenplay-chrome {
+  .script-canvas {
+    background: var(--script-canvas-bg);
+    color: var(--script-canvas-fg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 3rem;
+    padding-inline: 1rem;
+  }
+
+  .script-page-number {
+    position: absolute;
+    top: calc(var(--script-margin-top) * 0.55);
+    right: var(--script-margin-right);
+    font-family: var(--script-font-family);
+    font-size: var(--script-font-size);
+  }
+
+  /* Scale the whole page down to fit narrow viewports instead of
+     reflowing screenplay measurements (which must stay print-accurate). */
+  @media (max-width: 900px) {
+    .script-page-wrap {
+      --script-page-scale: calc((100vw - 2rem) / 8.5in);
+    }
+  }
+}
+
+@layer screenplay-page {
+  .script-page-wrap {
+    width: calc(var(--script-page-width) * var(--script-page-scale));
+    height: calc(var(--script-page-height) * var(--script-page-scale));
+  }
+
+  .script-page {
+    position: relative;
+    width: var(--script-page-width);
+    height: var(--script-page-height);
+    background: var(--script-page-bg);
+    color: var(--script-page-fg);
+    box-shadow: var(--script-page-shadow);
+    transform: scale(var(--script-page-scale));
+    transform-origin: top left;
+    font-family: var(--script-font-family);
+    font-size: var(--script-font-size);
+    line-height: var(--script-line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .script-page[data-page]:not([data-page='1'])::before {
+    content: attr(data-page) '.';
+    position: absolute;
+    top: calc(var(--script-margin-top) * 0.55);
+    right: var(--script-margin-right);
+  }
+
+  .script-page-content {
+    position: absolute;
+    inset: var(--script-margin-top) var(--script-margin-right) var(--script-margin-bottom)
+      var(--script-margin-left);
+    overflow: hidden;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Screenplay elements                                                    */
+/* ---------------------------------------------------------------------- */
+
+@layer screenplay-elements {
+  .script-page-content > * {
+    margin: 0;
+    font: inherit;
+  }
+
+  .script-page-content > * + * {
+    margin-top: var(--script-space-blank-line);
+  }
+
+  /* INT./EXT. LOCATION – TIME OF DAY */
+  .scene-heading {
+    margin-left: var(--script-indent-scene-heading);
+    margin-top: var(--script-space-before-scene-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* Location changes within one scene, e.g. "LATER" */
+  .subheading {
+    margin-left: var(--script-indent-scene-heading);
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+
+  /* Third person, present tense; emphasis phrases wrapped in .script-caps */
+  .action {
+    margin-left: var(--script-indent-action);
+    max-width: var(--script-width-action);
+    text-align: left;
+  }
+
+  .action .script-caps {
+    text-transform: uppercase;
+  }
+
+  /* CHARACTER NAME, optionally with (V.O.) / (O.S.) / (CONT'D) extension */
+  .character {
+    margin-left: var(--script-indent-character);
+    margin-top: var(--script-space-before-character);
+    width: var(--script-width-character);
+    text-transform: uppercase;
+  }
+
+  .character .extension {
+    text-transform: uppercase;
+  }
+
+  /* (beat) / (sarcastically) — used sparingly */
+  .parenthetical {
+    margin-left: var(--script-indent-parenthetical);
+    width: var(--script-width-parenthetical);
+  }
+
+  .dialogue {
+    margin-left: var(--script-indent-dialogue);
+    width: var(--script-width-dialogue);
+  }
+
+  /* CUT TO: / FADE OUT. — flush right */
+  .transition {
+    margin-top: var(--script-space-before-transition);
+    margin-left: auto;
+    width: fit-content;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* Two side-by-side speakers talking over one another */
+  .dual-dialogue {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.25in;
+    margin-left: var(--script-indent-action);
+    width: var(--script-width-action);
+  }
+
+  .dual-dialogue .character,
+  .dual-dialogue .parenthetical,
+  .dual-dialogue .dialogue {
+    margin-left: 0;
+    width: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Title page                                                             */
+/* ---------------------------------------------------------------------- */
+
+@layer screenplay-page {
+  .script-title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+
+  .script-title-page .title {
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .script-title-page .byline {
+    margin-top: 2lh;
+  }
+
+  .script-title-page .basis {
+    margin-top: 1lh;
+    font-style: italic;
+  }
+
+  .script-title-page .contact {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: left;
+    white-space: pre-line;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Print                                                                  */
+/* ---------------------------------------------------------------------- */
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  .script-canvas {
+    background: none;
+    padding: 0;
+    gap: 0;
+  }
+
+  .script-page {
+    box-shadow: none;
+    transform: none;
+    page-break-after: always;
+  }
+
+  .script-page-wrap {
+    width: auto;
+    height: auto;
+  }
+}
